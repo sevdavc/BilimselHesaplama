@@ -1,0 +1,39 @@
+def f(x,y):
+    return (x**2+y**2-4)
+def g(x,y):
+    return ((2.71)**x+y-1)
+
+def fx(x,y):
+    return (2*x)
+def fy(x,y):
+    return (2*y)
+
+def gx(x,y):
+    return ((2.71)**x)
+def gy(x,y):
+    return 1
+
+a=float(input("ilk x değerini giriniz: "))
+b=float(input("ilk y değerini giriniz: "))
+
+deltax,deltay=1,1
+
+while(abs(deltax)>0.001 and abs(deltay)>0.001):
+    j=1
+    k=0
+    A=[[fx(a,b),fy(a,b),-f(a,b)],[gx(a,b),gy(a,b),-g(a,b)]]
+    while(j!=-1 and k!=2):
+        m=A[j][k]
+        for i in range(0,3):
+            A[j][i]+= -A[k][i]*m/A[k][k]
+        j-=1
+        k+=1
+
+    deltax= A[0][2]/A[0][0]
+    deltay= A[1][2]/A[1][1]
+    print("deltax= ",deltax, "deltay=",deltay)
+
+    a=a+deltax
+    b=b+deltay
+
+print(a,b)
