@@ -1,0 +1,16 @@
+def f(x,y):
+    return -(y/x)
+
+h=float(input("H değerini giriniz: "))
+yi=3/4
+xilk=4
+xson=int(input("X'in son değerini giriniz: "))
+
+for i in range(xilk,xson):
+    yyarim= yi+f(i,yi)*h/2
+    deger=yi
+    yi=yyarim
+    print(yi)
+    ytam =deger+f((i+1/2),yi)*h
+    yi=ytam
+    print(ytam)
