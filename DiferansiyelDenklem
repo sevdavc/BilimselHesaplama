@@ -1,0 +1,13 @@
+def f(x,y):
+    return -(y/x)
+
+h=float(input("H değerini giriniz: "))
+yi=3/4
+xilk=4
+xson=int(input("X'in son değerini giriniz: "))
+
+while(xilk<xson):
+    ybir=yi+f(xilk,yi)*h
+    yi=ybir
+    xilk+=h
+    print(yi)
