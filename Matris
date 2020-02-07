@@ -1,0 +1,22 @@
+def equation_system_solve(x):
+
+    for i in range(len(x)):
+        for j in range(len(x) - 1, i, -1):
+            multiplier = x[j][i] / x[i][i]
+            for k in range(len(x[0])):
+                x[j][k] -= multiplier * x[i][k]
+
+    for i in range(len(x) - 1, 0, -1):
+        for j in range(i - 1, -1, -1):
+            multiplier = x[j][i] / x[i][i]
+            for k in range(len(x[0])):
+                x[j][k] -= multiplier * x[i][k]
+
+    for i in range(len(x)):
+        x[i][-1] /= x[i][i]
+        x[i][i] /= x[i][i]
+
+    return x
+
+x=[[3,4,8,9],[1,6,2,7],[2,7,6,5]]
+print(equation_system_solve(x))
