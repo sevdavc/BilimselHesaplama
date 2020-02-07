@@ -1,0 +1,27 @@
+def f(x):
+    return(x**2-x*4+3)
+
+x1=int(input("Başlangıç tahmini: "))
+x2=int(input("Bitiş tahmini: "))
+
+hassas=10
+if(f(x1)*f(x2)==0):
+    print("tahminlerinizden biri denklemin köküdür.")
+elif(f(x1)*f(x2)>0):
+    print("Girdiğiniz aralıkta kök yoktur.")
+else:
+    count=0
+    xr = (x1 + x2) / 2
+    while(f(xr)!=0):
+        xr = (x1 + x2) / 2
+        xr=abs(xr)
+        if(f(xr)==0):
+            print("Kök bulundu.",xr)
+            break
+        elif(f(x1)*f(xr)<0):
+            x2=xr
+        else:
+            x1=xr
+        print(xr)
+        count+=1
+    print(count)
