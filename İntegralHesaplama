@@ -1,0 +1,34 @@
+import math
+
+def f(x):
+    return(math.sin(x))
+
+x1=0
+x2=math.pi
+
+#aralığın kaç parçaya bölüneceği
+n=1000
+h=(x2-x1)/n
+integral=0
+
+#Dikdörtgen kullanılan hesaplamalar
+for i in range(n): #İntegrali eksik hesaplar(kısa kenarlı dikdörtgen)
+    integral+=f(x1+i*h)*h
+print(integral)
+
+integral=0
+for i in range(1,n+1): #integrali fazla hesaplar(uzun kenarlı dikdörtgen)
+    integral+=f(x1+i*h)*h
+print(integral)
+
+integral=0
+for i in range(n): #Yukarıdaki iki durumun ortasındaki durum(orta nokta)
+    integral+= f(x1+h/2+i*h)*h
+print(integral)
+
+#Yamuk kullanılan hesaplamalar
+
+integral=0
+for i in range(n):
+    integral+= (f(x1+h*i)+f(x1+(i+1)*h))*h/2
+print(integral)
